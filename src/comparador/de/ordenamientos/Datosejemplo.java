@@ -5,7 +5,6 @@
  */
 package comparador.de.ordenamientos;
 
-import java.math.BigInteger;
 import java.util.ArrayList;
 
 /**
@@ -13,41 +12,40 @@ import java.util.ArrayList;
  * @author gago8
  */
 public class Datosejemplo {
-    private BigInteger nombre;
-    private BigInteger valor;
+    private int nombre;
+    private double valor;
     public static ArrayList<Datosejemplo> datos=new ArrayList<Datosejemplo>();
 
     public Datosejemplo() {
     }
 
     
-    public static void ramdon()
+    public static void ramdon(int n)
     {
-        
-    }
+        for (int i = 0; i < n; i++) {
+            Datosejemplo dat=new Datosejemplo(i, (Math.random() * Double.MAX_VALUE) + 1);
+            datos.add(dat);
+        }
+    }   
     
-    
-    
-    
-    
-    public Datosejemplo(BigInteger nombre, BigInteger valor) {
+    public Datosejemplo(int nombre, double valor) {
         this.nombre = nombre;
         this.valor = valor;
     }
 
-    public BigInteger getNombre() {
+    public int getNombre() {
         return nombre;
     }
 
-    public void setNombre(BigInteger nombre) {
+    public void setNombre(int nombre) {
         this.nombre = nombre;
     }
 
-    public BigInteger getValor() {
+    public double getValor() {
         return valor;
     }
 
-    public void setValor(BigInteger valor) {
+    public void setValor(double valor) {
         this.valor = valor;
     }
     

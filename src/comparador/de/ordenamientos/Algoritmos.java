@@ -5,7 +5,6 @@
  */
 package comparador.de.ordenamientos;
 
-import java.math.BigInteger;
 import java.util.ArrayList;
 
 /**
@@ -19,7 +18,7 @@ public class Algoritmos {
         Datosejemplo at;
         for (i = 1; i < atl.size(); i++)        {
             at=atl.get(i);
-             for (j = i-1; j >= 0&&atl.get(j).getValor().compareTo(at.getValor())==-1; j--) {
+             for (j = i-1; j >= 0&&atl.get(j).getValor()<at.getValor(); j--) {
                 atl.set(j+1, atl.get(j));
                 atl.set(j, at);
             }
@@ -38,9 +37,9 @@ public class Algoritmos {
             pivote=izq;
             while(izq!=der)
             {
-                while(atl.get(der).getValor().compareTo(atl.get(pivote).getValor())<=0&&izq<der)                    
+                while(atl.get(der).getValor()<=atl.get(pivote).getValor()&&izq<der)                    
                     der--;
-                while(atl.get(izq).getValor().compareTo(atl.get(pivote).getValor())==1&&izq<der)
+                while(atl.get(izq).getValor()>atl.get(pivote).getValor()&&izq<der)
                     izq++;
                 
                 if (der!=izq) {
