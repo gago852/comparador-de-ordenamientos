@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package comparador.de.algoritmos;
+package comparador.de.ordenamientos;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
@@ -20,6 +20,16 @@ public class Datosejemplo {
     public Datosejemplo() {
     }
 
+    
+    public static void ramdon()
+    {
+        
+    }
+    
+    
+    
+    
+    
     public Datosejemplo(BigInteger nombre, BigInteger valor) {
         this.nombre = nombre;
         this.valor = valor;
