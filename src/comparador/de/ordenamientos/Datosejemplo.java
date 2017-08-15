@@ -14,7 +14,8 @@ import java.util.ArrayList;
 public class Datosejemplo {
     private int nombre;
     private double valor;
-    public static ArrayList<Datosejemplo> datos=new ArrayList<Datosejemplo>();
+    public static ArrayList<Datosejemplo> datos;
+    public static ArrayList<Datosejemplo> copia;
 
     public Datosejemplo() {
     }
@@ -22,10 +23,12 @@ public class Datosejemplo {
     
     public static void ramdon(int n)
     {
+        datos=new ArrayList<Datosejemplo>();
         for (int i = 0; i < n; i++) {
             Datosejemplo dat=new Datosejemplo(i, (Math.random() * Double.MAX_VALUE) + 1);
             datos.add(dat);
         }
+        copia=datos;
     }   
     
     public Datosejemplo(int nombre, double valor) {
