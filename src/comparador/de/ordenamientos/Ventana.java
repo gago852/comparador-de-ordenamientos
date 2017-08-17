@@ -208,7 +208,7 @@ public class Ventana extends javax.swing.JFrame {
             dato=Datosejemplo.datos;
             copy=(ArrayList<Datosejemplo>) dato.clone();
             ti=System.currentTimeMillis();
-            Algoritmos.quicksort(Datosejemplo.datos, 0, Datosejemplo.datos.size()-1);
+            Algoritmos.quicksort(dato, 0, dato.size()-1);
             tf=System.currentTimeMillis();
             nombres[0]="quicksort";
             tiempo[0]=tf-ti;
@@ -221,13 +221,13 @@ public class Ventana extends javax.swing.JFrame {
             nombres[1]="insertsort";
             tiempo[1]=tf-ti;
             
-          /* dato=(ArrayList<Datosejemplo>) copy.clone();
+           dato=(ArrayList<Datosejemplo>) copy.clone();
             
            ti=System.currentTimeMillis();
-            Algoritmos.radixsort(Datosejemplo.datos, Datosejemplo.datos.size());
+            Algoritmos.radixsort(dato, dato.size());
             tf=System.currentTimeMillis();
             nombres[2]="radixsort";
-            tiempo[2]=tf-ti;*/
+            tiempo[2]=tf-ti;
             
             
             
@@ -275,7 +275,7 @@ public class Ventana extends javax.swing.JFrame {
         DefaultTableModel modelo = new DefaultTableModel();
         jtabla.setModel(modelo);
         modelo.addColumn("Nombre");
-        modelo.addColumn("Tiempo");
+        modelo.addColumn("valor");
         Object[] object = new Object[8];
         int n = at.size();
         for (int i = 0; i < n; i++) {

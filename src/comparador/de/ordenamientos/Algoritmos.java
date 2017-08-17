@@ -98,7 +98,7 @@ public class Algoritmos {
         }
         // Crea el array de salida
         for (i = n - 1; i >= 0; i--){
-            output.add(    count[(arr.get(i).getValor().divide(new BigInteger(Integer.toString(exp)))).mod(BigInteger.TEN).intValue()]-1, arr.get(i));
+            output.set(    count[(arr.get(i).getValor().divide(new BigInteger(Integer.toString(exp)))).mod(BigInteger.TEN).intValue()]-1, arr.get(i));
             count[(arr.get(i).getValor().divide(new BigInteger(Integer.toString(exp)))).mod(BigInteger.TEN).intValue()]--;           
         }
         // Copy the output array to arr[], so that arr[] now
