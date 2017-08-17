@@ -256,7 +256,12 @@ public class Ventana extends javax.swing.JFrame {
             e.printStackTrace();
         }
     }//GEN-LAST:event_ejecutarActionPerformed
-
+/**
+ * funcion para mostrar la tabla con los tiempos de corrido
+ * @param jtabla tabla en el frame donde se mostraran los datos
+ * @param nombres vector con los nombres de los ordenamientos
+ * @param tiempo vector con los tiempos de corrida de los ordenamientos
+ */
     private void mostrar(JTable jtabla,String[] nombres,long[] tiempo){
         DefaultTableModel modelo = new DefaultTableModel();
         jtabla.setModel(modelo);
@@ -270,6 +275,11 @@ public class Ventana extends javax.swing.JFrame {
             modelo.addRow(object);
         }
     }
+    /**
+     * funcion para mostrar la tabla con los datos de la arraylist
+     * @param jtabla tabla en el frame donde se mostraran los datos
+     * @param at arraylist que se va a mostrar
+     */
     private void mostrar(JTable jtabla,ArrayList<Datosejemplo> at)
     {
         DefaultTableModel modelo = new DefaultTableModel();

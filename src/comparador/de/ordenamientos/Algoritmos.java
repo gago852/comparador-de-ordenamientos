@@ -14,6 +14,10 @@ import java.util.Arrays;
  * @author gago8
  */
 public class Algoritmos {
+    /**
+     * algoritmo de ordenamiento por el metodo de insercion
+     * @param atl arraylist que se va a ordenar
+     */
     public static void insertsort(ArrayList<Datosejemplo> atl)
     {
         int i,j;
@@ -26,6 +30,13 @@ public class Algoritmos {
             }
         }
     }
+    /**
+     * algoritmo de ordenamiento por el metodo quicksort
+     * @param atl arraylist que se va a ordenar
+     * @param izq posicion del primer dato
+     * @param der posicion del ultimo dato
+     * @return arraylsit ordenado
+     */
     public static ArrayList<Datosejemplo> quicksort (ArrayList<Datosejemplo> atl,int izq,int der)
     {
         if(izq>=der)
@@ -61,6 +72,12 @@ public class Algoritmos {
         }
         return atl;
     }
+    /**
+     * algoritmo de ordenamiento por el medoto de radixsort
+     * @param arr arraylist que se va a ordenar
+     * @param n tamaño de la arraylist
+     * @return arraylist ordenado
+     */
     public static ArrayList<Datosejemplo> radixsort(ArrayList<Datosejemplo> arr, int n)
     {
         // Find the maximum number to know number of digits
@@ -75,6 +92,12 @@ public class Algoritmos {
         }
         return arr;
     }
+    /**
+     * algortimo del radixsort que ordena el arraylist por el digito activo
+     * @param arr arraylist que se va a ordenar
+     * @param n tamaño de la arraylist
+     * @param exp exponente que se usa para ordenar la arraylist por posicion del digito
+     */
     private static void countSort(ArrayList<Datosejemplo> arr, int n, int exp)
     {
         ArrayList<Datosejemplo> output = new ArrayList<Datosejemplo>(); // array de salida
@@ -107,6 +130,12 @@ public class Algoritmos {
             arr.set(i, output.get(i));
         }
     }
+    /**
+     * algoritmo para buscar el numero mas grande
+     * @param arr arraylist para buscar el mayor
+     * @param n tamaño de la arraylist
+     * @return el valor mas grande de la arraylist
+     */
     private static BigInteger getMax(ArrayList<Datosejemplo> arr, int n)
     {
         BigInteger mx = arr.get(0).getValor();
