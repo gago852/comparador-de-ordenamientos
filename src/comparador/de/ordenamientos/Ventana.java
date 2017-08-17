@@ -5,6 +5,10 @@
  */
 package comparador.de.ordenamientos;
 
+import java.util.ArrayList;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author gago8
@@ -14,6 +18,8 @@ public class Ventana extends javax.swing.JFrame {
     /**
      * Creates new form Ventana
      */
+    ArrayList<Datosejemplo> dato;
+    ArrayList<Datosejemplo> copy;
     public Ventana() {
         initComponents();
     }
@@ -34,13 +40,12 @@ public class Ventana extends javax.swing.JFrame {
         tablaorden = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        tipoorden = new javax.swing.JComboBox<>();
         jPanel2 = new javax.swing.JPanel();
         numerodatos = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         ejecutar = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
-        tablaorden1 = new javax.swing.JTable();
+        tablatiempos = new javax.swing.JTable();
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -75,28 +80,22 @@ public class Ventana extends javax.swing.JFrame {
 
         jLabel2.setText("Datos Ordenados");
 
-        tipoorden.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(136, 136, 136)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(258, 258, 258)
                 .addComponent(jLabel1)
-                .addGap(234, 234, 234)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(292, 292, 292))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(29, 29, 29)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(441, 441, 441))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(tipoorden, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(528, 528, 528))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 595, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 593, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -109,16 +108,19 @@ public class Ventana extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(tipoorden, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         jLabel5.setText("numero de datos:");
 
         ejecutar.setText("ejecutar");
+        ejecutar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ejecutarActionPerformed(evt);
+            }
+        });
 
-        tablaorden1.setModel(new javax.swing.table.DefaultTableModel(
+        tablatiempos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -129,7 +131,7 @@ public class Ventana extends javax.swing.JFrame {
 
             }
         ));
-        jScrollPane4.setViewportView(tablaorden1);
+        jScrollPane4.setViewportView(tablatiempos);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -168,15 +170,17 @@ public class Ventana extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 698, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(78, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(540, 540, 540)
-                .addComponent(jLabel4)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(540, 540, 540)
+                        .addComponent(jLabel4))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(477, 477, 477)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(71, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -184,15 +188,107 @@ public class Ventana extends javax.swing.JFrame {
                 .addGap(29, 29, 29)
                 .addComponent(jLabel4)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(81, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void ejecutarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ejecutarActionPerformed
+        // TODO add your handling code here:
+        String[] nombres=new String[5];
+        long[] tiempo=new long[5];
+        long ti,tf;
+        try{
+        if (!numerodatos.getText().isEmpty()) {
+            Datosejemplo.ramdon(Integer.parseInt(numerodatos.getText()));
+            dato=Datosejemplo.datos;
+            copy=(ArrayList<Datosejemplo>) dato.clone();
+            ti=System.currentTimeMillis();
+            Algoritmos.quicksort(Datosejemplo.datos, 0, Datosejemplo.datos.size()-1);
+            tf=System.currentTimeMillis();
+            nombres[0]="quicksort";
+            tiempo[0]=tf-ti;
+            
+            dato=(ArrayList<Datosejemplo>) copy.clone();
+            
+            ti=System.currentTimeMillis();
+            Algoritmos.insertsort(dato);
+            tf=System.currentTimeMillis();
+            nombres[1]="insertsort";
+            tiempo[1]=tf-ti;
+            
+          /* dato=(ArrayList<Datosejemplo>) copy.clone();
+            
+           ti=System.currentTimeMillis();
+            Algoritmos.radixsort(Datosejemplo.datos, Datosejemplo.datos.size());
+            tf=System.currentTimeMillis();
+            nombres[2]="radixsort";
+            tiempo[2]=tf-ti;*/
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            mostrar(tablaorigen, copy);
+            mostrar(tablaorden, dato);
+            mostrar(tablatiempos, nombres, tiempo); 
+            numerodatos.setText("");
+        }        
+        }catch(Exception e)
+        {            
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_ejecutarActionPerformed
+
+    private void mostrar(JTable jtabla,String[] nombres,long[] tiempo){
+        DefaultTableModel modelo = new DefaultTableModel();
+        jtabla.setModel(modelo);
+        modelo.addColumn("Nombre");
+        modelo.addColumn("Tiempo");
+        Object[] object = new Object[8];
+        int n = nombres.length;
+        for (int i = 0; i < n; i++) {            
+            object[0] = nombres[i];
+            object[1] = tiempo[i];
+            modelo.addRow(object);
+        }
+    }
+    private void mostrar(JTable jtabla,ArrayList<Datosejemplo> at)
+    {
+        DefaultTableModel modelo = new DefaultTableModel();
+        jtabla.setModel(modelo);
+        modelo.addColumn("Nombre");
+        modelo.addColumn("Tiempo");
+        Object[] object = new Object[8];
+        int n = at.size();
+        for (int i = 0; i < n; i++) {
+            Datosejemplo atll = (Datosejemplo) at.get(i);
+            object[0] = atll.getNombre();
+            object[1] = atll.getValor();
+            modelo.addRow(object);
+        }
+}
+    
+    
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -241,8 +337,7 @@ public class Ventana extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTextField numerodatos;
     private javax.swing.JTable tablaorden;
-    private javax.swing.JTable tablaorden1;
     private javax.swing.JTable tablaorigen;
-    private javax.swing.JComboBox<String> tipoorden;
+    private javax.swing.JTable tablatiempos;
     // End of variables declaration//GEN-END:variables
 }

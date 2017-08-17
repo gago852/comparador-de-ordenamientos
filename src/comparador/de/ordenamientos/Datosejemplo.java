@@ -16,7 +16,6 @@ public class Datosejemplo {
     private int nombre;
     private BigInteger valor;
     public static ArrayList<Datosejemplo> datos;
-    public static ArrayList<Datosejemplo> copia;
 
     public Datosejemplo() {
     }
@@ -26,14 +25,11 @@ public class Datosejemplo {
     {
         datos=new ArrayList<Datosejemplo>();
         Random rnd=new Random();
-        BigInteger p=new BigInteger("999999999999999999999999999999999999999999999999999999999999999999999999");
-        
-        for (int i = 0; i < n; i++) {
-            
+        BigInteger p=new BigInteger("999999999999999999999999999999999999999999999999999999999999999999999999");        
+        for (int i = 0; i < n; i++) {            
             Datosejemplo dat=new Datosejemplo(i, new BigInteger(p.bitLength(), rnd));
             datos.add(dat);
-        }
-        copia=datos;
+        }        
     }   
     
     public Datosejemplo(int nombre, BigInteger valor) {

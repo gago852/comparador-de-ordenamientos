@@ -77,7 +77,10 @@ public class Algoritmos {
     }
     private static void countSort(ArrayList<Datosejemplo> arr, int n, int exp)
     {
-        ArrayList<Datosejemplo> output = new ArrayList<Datosejemplo>(n); // array de salida
+        ArrayList<Datosejemplo> output = new ArrayList<Datosejemplo>(); // array de salida
+        for (int i = 0; i < n; i++) {
+            output.add(new Datosejemplo());
+        }
         int i;
         int count[] = new int[10];
         Arrays.fill(count,0);
@@ -86,7 +89,7 @@ public class Algoritmos {
         // que se repite
         
         for (i = 0; i < n; i++){
-            count[(arr.get(i).getValor().divide(new BigInteger(Integer.toString(exp)))).mod(BigInteger.TEN).intValueExact()]++;
+            count[arr.get(i).getValor().divide(new BigInteger(Integer.toString(exp))).mod(BigInteger.TEN).intValue()]++;
         }
         // cambia a el array de tal forma que ahora 
         // contiene la posicion en el array de salida
@@ -95,8 +98,8 @@ public class Algoritmos {
         }
         // Crea el array de salida
         for (i = n - 1; i >= 0; i--){
-            output.add(((arr.get(i).getValor().divide(new BigInteger(Integer.toString(exp)))).mod(BigInteger.TEN).intValueExact())-1, arr.get(i));
-            count[(arr.get(i).getValor().divide(new BigInteger(Integer.toString(exp)))).mod(BigInteger.TEN).intValueExact()]--;           
+            output.add(    count[(arr.get(i).getValor().divide(new BigInteger(Integer.toString(exp)))).mod(BigInteger.TEN).intValue()]-1, arr.get(i));
+            count[(arr.get(i).getValor().divide(new BigInteger(Integer.toString(exp)))).mod(BigInteger.TEN).intValue()]--;           
         }
         // Copy the output array to arr[], so that arr[] now
         // contains sorted numbers according to curent digit
