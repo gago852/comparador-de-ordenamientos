@@ -229,23 +229,21 @@ public class Ventana extends javax.swing.JFrame {
             nombres[2]="radixsort";
             tiempo[2]=tf-ti;
             
+            dato=(ArrayList<Datosejemplo>) copy.clone();
             
+            ti=System.currentTimeMillis();
+            Algoritmos.Heapsort(dato);
+            tf=System.currentTimeMillis();
+            nombres[3]="heapsort";
+            tiempo[3]=tf-ti;
             
+            dato=(ArrayList<Datosejemplo>) copy.clone();
             
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
+            ti=System.currentTimeMillis();
+            Algoritmos.mergesort(dato, 0, dato.size()-1);
+            tf=System.currentTimeMillis();
+            nombres[4]="mergesort";
+            tiempo[4]=tf-ti;             
             mostrar(tablaorigen, copy);
             mostrar(tablaorden, dato);
             mostrar(tablatiempos, nombres, tiempo); 
