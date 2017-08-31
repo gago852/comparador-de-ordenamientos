@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Random;
 /**
  *
- * @author gago8
+ * @author ggabriel gomez y jesus rafael gonzales
  */
 public class Datosejemplo {
     private int nombre;

@@ -11,7 +11,7 @@ import java.util.Arrays;
 
 /**
  *
- * @author gago8
+ * @author gabriel gomez y jesus rafael gonzales
  */
 public class Algoritmos {
     /**
@@ -32,46 +32,45 @@ public class Algoritmos {
     }
     /**
      * algoritmo de ordenamiento por el metodo quicksort
-     * @param atl arraylist que se va a ordenar
-     * @param izq posicion del primer dato
-     * @param der posicion del ultimo dato
-     * @return arraylsit ordenado
+     * @param arr arraylist que se va a ordenar
+     * @param low posicion del primer dato
+     * @param high posicion del ultimo dato
      */
-    public static ArrayList<Datosejemplo> quicksort (ArrayList<Datosejemplo> atl,int izq,int der)
+    public static void Qsort(ArrayList<Datosejemplo>  arr, int low, int high)
     {
-        if(izq>=der)
-        {
-            return atl;
+        if (low < high)
+        {            
+            int pi = partition(arr, low, high);           
+            Qsort(arr, low, pi-1);
+            Qsort(arr, pi+1, high);
         }
-        int i=izq,d=der;
-        if (izq!=der) {
-            int pivote;
-            Datosejemplo aux;
-            pivote=izq;
-            while(izq!=der)
-            {
-                while(atl.get(der).getValor().compareTo(atl.get(pivote).getValor())<=0&&izq<der)                    
-                    der--;
-                while(atl.get(izq).getValor().compareTo(atl.get(pivote).getValor())==1&&izq<der)
-                    izq++;
-                
-                if (der!=izq) {
-                    aux=atl.get(der);
-                    atl.set(der, atl.get(izq));
-                    atl.set(izq, aux);
-                }
-                if(izq==der)
-                {
-                    quicksort(atl,i,izq-1);
-                    quicksort(atl,izq+1,d);
-                }
-            }
-        }else
-        {
-            return atl;
-        }
-        return atl;
     }
+    /**
+     * nucleo del quicksort usa una particion de la arraylist y lo ordena
+     * @param arr arraylist que se va a ordenar
+     * @param low posicion del primer dato
+     * @param high posicion del ultimo dato
+     * @return arraylist con la particion ordenada
+     */
+    private static int partition(ArrayList<Datosejemplo>  arr, int low, int high)
+    {
+        Datosejemplo pivot = arr.get(high);
+        int i = (low-1); 
+        for (int j=low; j<high; j++)
+        {           
+            if (arr.get(j).getValor().compareTo(pivot.getValor())==-1 || arr.get(j).getValor().compareTo(pivot.getValor())==0)
+            {
+                i++;                
+                Datosejemplo temp = arr.get(i);
+                arr.set(i, arr.get(j));
+                arr.set(i, temp);
+            }
+        }        
+        Datosejemplo temp = arr.get(i+1);
+        arr.set(i+1, arr.get(high));
+        arr.set(high, temp); 
+        return i+1;
+    } 
     /**
      * algoritmo de ordenamiento por el medoto de radixsort
      * @param arr arraylist que se va a ordenar

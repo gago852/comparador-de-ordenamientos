@@ -11,7 +11,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author gago8
+ * @author gabriel gomez y jesus rafael gonzales
  */
 public class Ventana extends javax.swing.JFrame {
 
@@ -208,7 +208,7 @@ public class Ventana extends javax.swing.JFrame {
             dato=Datosejemplo.datos;
             copy=(ArrayList<Datosejemplo>) dato.clone();
             ti=System.currentTimeMillis();
-            Algoritmos.quicksort(dato, 0, dato.size()-1);
+            Algoritmos.Qsort(dato, 0, dato.size()-1);
             tf=System.currentTimeMillis();
             nombres[0]="quicksort";
             tiempo[0]=tf-ti;
