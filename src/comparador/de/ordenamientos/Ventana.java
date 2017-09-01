@@ -6,6 +6,7 @@
 package comparador.de.ordenamientos;
 
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -252,6 +253,8 @@ public class Ventana extends javax.swing.JFrame {
         }catch(Exception e)
         {            
             e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "a ocurrido un error recuerde digitar solo numeros enteros");
+
         }
     }//GEN-LAST:event_ejecutarActionPerformed
 /**
