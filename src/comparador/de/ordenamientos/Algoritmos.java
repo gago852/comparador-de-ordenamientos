@@ -11,7 +11,7 @@ import java.util.Arrays;
 
 /**
  *
- * @author gabriel gomez y jesus rafael gonzales
+ * 
  */
 public class Algoritmos {
     /**

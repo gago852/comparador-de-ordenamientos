@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Random;
 /**
  *
- * @author ggabriel gomez y jesus rafael gonzales
+ * 
  */
 public class Datosejemplo {
     private int nombre;
@@ -38,7 +38,7 @@ public class Datosejemplo {
     {
         datos=new ArrayList<Datosejemplo>();
         Random rnd=new Random();
-        BigInteger p=new BigInteger("999999999999999999999999999999999999999999999999999999999999999999999999");        
+        BigInteger p=new BigInteger("9999999999");        
         for (int i = 0; i < n; i++) {            
             Datosejemplo dat=new Datosejemplo(i, new BigInteger(p.bitLength(), rnd));
             datos.add(dat);

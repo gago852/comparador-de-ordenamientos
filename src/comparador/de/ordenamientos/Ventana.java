@@ -12,7 +12,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author gabriel gomez y jesus rafael gonzales
+ * 
  */
 public class Ventana extends javax.swing.JFrame {
 
@@ -200,8 +200,8 @@ public class Ventana extends javax.swing.JFrame {
 
     private void ejecutarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ejecutarActionPerformed
         // TODO add your handling code here:
-        String[] nombres=new String[5];
-        long[] tiempo=new long[5];
+        String[] nombres=new String[3];
+        long[] tiempo=new long[3];
         long ti,tf;
         try{
         if (!numerodatos.getText().isEmpty()) {
@@ -230,7 +230,7 @@ public class Ventana extends javax.swing.JFrame {
             nombres[2]="radixsort";
             tiempo[2]=tf-ti;
             
-            dato=(ArrayList<Datosejemplo>) copy.clone();
+           /* dato=(ArrayList<Datosejemplo>) copy.clone();
             
             ti=System.currentTimeMillis();
             Algoritmos.Heapsort(dato);
@@ -244,7 +244,7 @@ public class Ventana extends javax.swing.JFrame {
             Algoritmos.mergesort(dato, 0, dato.size()-1);
             tf=System.currentTimeMillis();
             nombres[4]="mergesort";
-            tiempo[4]=tf-ti;             
+            tiempo[4]=tf-ti;    */       
             mostrar(tablaorigen, copy);
             mostrar(tablaorden, dato);
             mostrar(tablatiempos, nombres, tiempo); 
