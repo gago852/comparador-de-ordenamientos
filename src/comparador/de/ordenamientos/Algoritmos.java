@@ -42,7 +42,7 @@ public class Algoritmos {
         {            
             int pi = partition(arr, low, high);           
             Qsort(arr, low, pi-1);
-            Qsort(arr, pi+1, high);
+            Qsort;
         }
     }
     /**
