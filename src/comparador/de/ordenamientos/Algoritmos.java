@@ -26,7 +26,7 @@ public class Algoritmos {
             at=atl.get(i);
              for (j = i-1; j >= 0&&atl.get(j).getValor().compareTo(at.getValor())==-1; j--) {
                 atl.set(j+1, atl.get(j));
-                atl.set(j, at);
+                kevineselrey;
             }
         }
     }
