@@ -213,8 +213,8 @@ public class Ventana extends javax.swing.JFrame {
             tf=System.currentTimeMillis();
             nombres[0]="quicksort";
             tiempo[0]=tf-ti;
-            
-            dato=(ArrayList<Datosejemplo>) copy.clone();
+            System.gc();
+            /*=(ArrayList<Datosejemplo>) copy.clone();
             
             ti=System.currentTimeMillis();
             Algoritmos.insertsort(dato);
@@ -228,7 +228,7 @@ public class Ventana extends javax.swing.JFrame {
             Algoritmos.radixsort(dato, dato.size());
             tf=System.currentTimeMillis();
             nombres[2]="radixsort";
-            tiempo[2]=tf-ti;
+            tiempo[2]=tf-ti;*/
             
            /* dato=(ArrayList<Datosejemplo>) copy.clone();
             
